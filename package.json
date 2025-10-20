@@ -1,0 +1,60 @@
+{
+  "name": "@todovue/tv-menu",
+  "private": false,
+  "author": "Cristhian Daza",
+  "description": "A Vue menu component with modern design and easy customization.",
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TODOvue/tv-menu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TODOvue/tv-menu/issues"
+  },
+  "keywords": [
+    "todovue",
+    "front-end",
+    "web",
+    "vue",
+    "vuejs",
+    "vue-js",
+    "menu",
+    "show-menu",
+    "vue-menu",
+    "vue-menu-component"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/tv-menu.es.js",
+      "require": "./dist/tv-menu.cjs.js"
+    }
+  },
+  "main": "dist/tv-menu.cjs.js",
+  "module": "dist/tv-menu.es.js",
+  "types": "dist/tv-menu.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:demo": "cp README.md public/ && VITE_BUILD_TARGET=demo vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "sass": "^1.0.0",
+    "vite": "^7.0.0",
+    "vite-plugin-css-injected-by-js": "^3.0.0",
+    "vite-plugin-dts": "^4.0.0"
+  }
+}
