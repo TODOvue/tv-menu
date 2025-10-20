@@ -8,7 +8,7 @@ A flexible, responsive Vue 3 menu component with integrated search functionality
 [![npm downloads](https://img.shields.io/npm/dm/@todovue/tv-menu.svg)](https://www.npmjs.com/package/@todovue/tv-menu)
 ![License](https://img.shields.io/github/license/TODOvue/tv-menu)
 
-> Demo: https://tv-menu.netlify.app/
+> Demo: https://tv-menu-demo.netlify.app
 
 ---
 ## Table of Contents
