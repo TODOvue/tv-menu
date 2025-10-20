@@ -1,11 +1,80 @@
 <script setup>
+import { TvSearch } from "@todovue/tv-search";
+import useMenu from "../composables/useMenu.js";
 
+defineProps({
+  placeholder: {
+    type: String,
+    default: "",
+  },
+  titleButton: {
+    type: String,
+    default: "",
+  },
+  menus: {
+    type: Array,
+    default: () => [],
+  },
+  imageMenu: {
+    type: String,
+    default: "",
+  },
+})
+
+const emit = defineEmits([
+  'clickImageMenu',
+  'clickMenuItem',
+  'searchMenu',
+]);
+
+const {
+  manageViewMenu,
+  showMenu,
+  handleClickImage,
+  handleClickMenu,
+  handleSearch,
+} = useMenu(emit);
 </script>
 
 <template>
-
+  <header class="tv-menu-container">
+    <nav class="tv-menu-image tv-cursor-pointer">
+      <img :src="imageMenu" alt="Logo" @click="handleClickImage" />
+    </nav>
+    <section class="tv-menu-items">
+      <ul v-for="menu in menus" :key="menu.id">
+        <li
+          class="tv-menu-item tv-cursor-pointer"
+          @click="handleClickMenu(menu)"
+        >
+          {{ menu.title }}
+        </li>
+      </ul>
+      <i
+          class="tv-icon tv-menu-icon tv-cursor-pointer"
+          @click="manageViewMenu(true)"
+      ></i>
+      <tv-search
+        :placeholder="placeholder"
+        :titleButton="titleButton"
+        @search="handleSearch"
+      />
+      <div class="tv-menu-items-mobile" v-if="showMenu">
+        <i
+          class="tv-icon tv-menu-icon-cancel tv-cursor-pointer"
+          @click="manageViewMenu(false)"
+        ></i>
+        <ul v-for="menu in menus" :key="menu.id">
+          <li
+            class="tv-menu-item-mobile tv-cursor-pointer"
+            @click="handleClickMenu(menu)"
+          >
+            {{ menu.title }}
+          </li>
+        </ul>
+      </div>
+    </section>
+  </header>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped lang="scss" src="../assets/scss/style.scss"></style>
