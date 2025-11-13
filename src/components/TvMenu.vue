@@ -19,6 +19,10 @@ defineProps({
     type: String,
     default: "",
   },
+  results: {
+    type: Array,
+    default: () => [],
+  },
 })
 
 const emit = defineEmits([
@@ -57,6 +61,7 @@ const {
       <tv-search
         :placeholder="placeholder"
         :titleButton="titleButton"
+        :results="results"
         @search="handleSearch"
       />
       <div class="tv-menu-items-mobile" v-if="showMenu">
