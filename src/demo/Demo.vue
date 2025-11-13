@@ -15,7 +15,7 @@ const TvMenu = defineAsyncComponent(/* webpackChunkName: "TvMenu" */() => import
     npmInstall="@todovue/tv-menu"
     sourceLink="https://github.com/TODOvue/tv-menu"
     urlClone="https://github.com/TODOvue/tv-menu.git"
-    version="1.0.1"
+    version="1.0.2"
   ></tv-demo>
 </template>
 
