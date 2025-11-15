@@ -1,48 +1,45 @@
 @use "variables";
-@use "mixins";
-@use "global";
 @use "sass:color";
+@import '@todovue/tv-search/style.css';
 
-.dark-mode {
-  .tv-menu-container {
-    .tv-menu {
-      &-icon {
+.tv-menu-container {
+  .tv-menu {
+    &-icon {
+      fill: variables.$dark-text;
+      transition: all 0.3s ease;
+      filter: brightness(0) invert(1);
+
+      &:hover {
+        transform: scale(1.1);
+        filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+      }
+
+      &-cancel {
         fill: variables.$dark-text;
         transition: all 0.3s ease;
         filter: brightness(0) invert(1);
 
         &:hover {
-          transform: scale(1.1);
+          transform: rotate(90deg) scale(1.1);
           filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
         }
-
-        &-cancel {
-          fill: variables.$dark-text;
-          transition: all 0.3s ease;
-          filter: brightness(0) invert(1);
-
-          &:hover {
-            transform: rotate(90deg) scale(1.1);
-            filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
-          }
-        }
       }
-      &-items {
-        &-mobile {
-          background: rgba(variables.$dark-card-bg, 0.85);
-          backdrop-filter: blur(20px);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    }
+    &-items {
+      &-mobile {
+        background: rgba(variables.$dark-card-bg, 0.85);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
-      &-item {
-        transition: all 0.3s ease;
+    }
+    &-item {
+      transition: all 0.3s ease;
 
-        &:hover {
-          color: variables.$dark-button-text;
-          transform: translateY(-2px);
-          text-shadow: 0 0 10px rgba(variables.$dark-button-text, 0.5);
-        }
+      &:hover {
+        color: variables.$dark-button-text;
+        transform: translateY(-2px);
+        text-shadow: 0 0 10px rgba(variables.$dark-button-text, 0.5);
       }
     }
   }
@@ -229,6 +226,10 @@
       }
     }
   }
+}
+
+.tv-cursor-pointer {
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
