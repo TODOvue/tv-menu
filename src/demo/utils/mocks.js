@@ -32,7 +32,7 @@ export const demos = [
           url: "/projects",
         },
       ],
-      placeholder: "Search...",
+      placeholder: "Type 'how'...",
       titleButton: "Search",
       imageMenu:
         "https://firebasestorage.googleapis.com/v0/b/todovue-blog.appspot.com/o/logo.png?alt=media&token=4d64783f-2259-49cc-a6b4-68e58ce3b227",
