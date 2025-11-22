@@ -3,6 +3,7 @@ import { TvDemo } from '@todovue/tv-demo'
 import TvMenu from './demo/Demo.vue'
 import '@todovue/tv-demo/style.css'
 import '@todovue/tv-search/style.css'
+import '@todovue/tv-button/style.css'
 import './style.scss'
 
 const app = createApp(TvMenu)

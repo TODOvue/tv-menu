@@ -24,7 +24,7 @@ export default defineConfig({
         formats: ["es", "cjs"]
       },
       rollupOptions: {
-        external: ["vue", "@todovue/tv-search"],
+        external: ["vue", "@todovue/tv-search", "@todovue/tv-button"],
         output: {
           exports: 'named'
         }

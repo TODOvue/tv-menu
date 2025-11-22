@@ -70,6 +70,7 @@ import App from './App.vue'
 import TvMenu from '@todovue/tv-menu'
 import '@todovue/tv-menu/style.css' // import styles
 import '@todovue/tv-search/style.css' // import styles
+import '@todovue/tv-button/style.css' // import styles
 
 createApp(App)
   .use(TvMenu) // enables <TvMenu /> globally
@@ -79,6 +80,9 @@ Local import inside a component:
 ```vue
 <script setup>
 import { TvMenu } from '@todovue/tv-menu'
+import '@todovue/tv-menu/style.css' // import styles
+import '@todovue/tv-search/style.css' // import styles
+import '@todovue/tv-button/style.css' // import styles
 
 const menuItems = [
   { id: 1, title: 'Home', url: '/' },

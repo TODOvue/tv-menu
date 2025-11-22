@@ -8,6 +8,7 @@ export default defineNuxtModule({
   setup(_options, nuxt) {
     const menuCss = '@todovue/tv-menu/style.css';
     const searchCss = '@todovue/tv-search/style.css';
+    const buttonCss = '@todovue/tv-button/style.css';
     
     const pushUnique = (path) => {
       if (!nuxt.options.css.includes(path)) {
@@ -17,5 +18,6 @@ export default defineNuxtModule({
     
     pushUnique(menuCss);
     pushUnique(searchCss);
+    pushUnique(buttonCss);
   }
 })
