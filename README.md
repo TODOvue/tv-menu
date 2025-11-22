@@ -1,4 +1,4 @@
-<p align="center"><img width="150" src="https://firebasestorage.googleapis.com/v0/b/todovue-blog.appspot.com/o/logo.png?alt=media&token=d8eb592f-e4a9-4b02-8aff-62d337745f41" alt="TODOvue logo">
+<p align="center"><img width="150" src="https://res.cloudinary.com/dcdfhi8qz/image/upload/v1763663056/uqqtkgp1lg3xdplutpga.png" alt="TODOvue logo">
 </p>
 
 # TODOvue Menu (TvMenu)
@@ -68,6 +68,8 @@ Global registration (main.js / main.ts):
 import { createApp } from 'vue'
 import App from './App.vue'
 import TvMenu from '@todovue/tv-menu'
+import '@todovue/tv-menu/style.css' // import styles
+import '@todovue/tv-search/style.css' // import styles
 
 createApp(App)
   .use(TvMenu) // enables <TvMenu /> globally
@@ -115,11 +117,11 @@ function handleSearch(searchTerm) {
 ## Nuxt 3 / SSR Usage
 Create a plugin file: `plugins/tv-menu.client.ts`:
 ```ts
-import { defineNuxtPlugin } from '#app'
-import TvMenu from '@todovue/tv-menu'
-
-export default defineNuxtPlugin(nuxtApp => {
-  nuxtApp.vueApp.use(TvMenu)
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: [
+    '@todovue/tv-menu/nuxt'
+  ]
 })
 ```
 Use anywhere in your Nuxt app:
@@ -132,13 +134,6 @@ Use anywhere in your Nuxt app:
     @clickMenu="navigateTo"
   />
 </template>
-```
-Optional direct import (no plugin):
-```vue
-<script setup>
-import '@todovue/tv-menu/style.css'
-import { TvMenu } from '@todovue/tv-menu'
-</script>
 ```
 
 ---

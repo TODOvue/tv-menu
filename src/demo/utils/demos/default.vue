@@ -10,6 +10,7 @@
 <script setup>
 import { TvMenu } from '@todovue/tv-menu';
 import '@todovue/tv-menu/style.css';
+import '@todovue/tv-search/style.css';
 
 const configMenu = {
   menus: [

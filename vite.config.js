@@ -24,11 +24,8 @@ export default defineConfig({
         formats: ["es", "cjs"]
       },
       rollupOptions: {
-        external: ["vue"],
+        external: ["vue", "@todovue/tv-search"],
         output: {
-          globals: {
-            vue: "Vue"
-          },
           exports: 'named'
         }
       }
