@@ -84,6 +84,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vite build configuration with CSS injection
 - Demo playground with example implementations
 
+[1.1.1]: https://github.com/TODOvue/tv-menu/pull/6/files
+[1.1.0]: https://github.com/TODOvue/tv-menu/pull/5/files
 [1.0.3]: https://github.com/TODOvue/tv-menu/pull/4/files
 [1.0.2]: https://github.com/TODOvue/tv-menu/pull/3/files
 [1.0.1]: https://github.com/TODOvue/tv-menu/pull/2/files
