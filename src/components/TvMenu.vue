@@ -46,14 +46,14 @@ const {
       <img :src="imageMenu" alt="Logo" @click="handleClickImage" />
     </nav>
     <section class="tv-menu-items">
-      <ul v-for="menu in menus" :key="menu.id">
-        <li
-          class="tv-menu-item tv-cursor-pointer"
-          @click="handleClickMenu(menu)"
-        >
-          {{ menu.title }}
-        </li>
-      </ul>
+      <div
+        v-for="menu in menus"
+        :key="menu.id"
+        class="tv-menu-item tv-cursor-pointer"
+        @click="handleClickMenu(menu)"
+      >
+        {{ menu.title }}
+      </div>
       <i
           class="tv-icon tv-menu-icon tv-cursor-pointer"
           @click="manageViewMenu(true)"
@@ -69,14 +69,14 @@ const {
           class="tv-icon tv-menu-icon-cancel tv-cursor-pointer"
           @click="manageViewMenu(false)"
         ></i>
-        <ul v-for="menu in menus" :key="menu.id">
-          <li
-            class="tv-menu-item-mobile tv-cursor-pointer"
-            @click="handleClickMenu(menu)"
-          >
-            {{ menu.title }}
-          </li>
-        </ul>
+        <div
+          v-for="menu in menus"
+          :key="menu.id"
+          class="tv-menu-item-mobile tv-cursor-pointer"
+          @click="handleClickMenu(menu)"
+        >
+          {{ menu.title }}
+        </div>
       </div>
     </section>
   </header>
