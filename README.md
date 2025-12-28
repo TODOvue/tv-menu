@@ -5,7 +5,6 @@
 A flexible, responsive Vue 3 menu component with integrated search functionality, mobile-friendly navigation, and easy customization. Perfect for Single Page Apps or Server-Side Rendered (SSR) environments like Nuxt 3.
 
 [![npm](https://img.shields.io/npm/v/@todovue/tv-menu.svg)](https://www.npmjs.com/package/@todovue/tv-menu)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/215e0717-08a0-433a-ace3-ea92a5dbcff2/deploy-status)](https://app.netlify.com/projects/tv-menu-demo/deploys)
 [![npm downloads](https://img.shields.io/npm/dm/@todovue/tv-menu.svg)](https://www.npmjs.com/package/@todovue/tv-menu)
 [![npm total downloads](https://img.shields.io/npm/dt/@todovue/tv-menu.svg)](https://www.npmjs.com/package/@todovue/tv-menu)
 ![License](https://img.shields.io/github/license/TODOvue/tv-menu)
@@ -15,7 +14,7 @@ A flexible, responsive Vue 3 menu component with integrated search functionality
 ![Last Commit](https://img.shields.io/github/last-commit/TODOvue/tv-menu)
 ![Stars](https://img.shields.io/github/stars/TODOvue/tv-menu?style=social)
 
-> Demo: https://tv-menu-demo.netlify.app
+> Demo: https://ui.todovue.blog/menu
 
 ---
 ## Table of Contents

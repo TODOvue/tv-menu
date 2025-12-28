@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2025-12-27
+
+### Added
+- Added automatic publishing to the TODOvue cPanel in `release.yml` for each release, simplifying package distribution and updates.
+- Added `package-lock.json` to the repository to ensure dependency consistency and facilitate version management across development and production environments.
+
+### Changed
+- Changed the `base` option in `vite.config.js` for website deployment in cpanel.
+
+### Fixed
+- Fixed repository URL in `package.json` to point to the correct GitHub repository.
+- Fixed the token configuration used to generate the package in the GitHub Actions workflow `release.yml`.
+
+### Dependencies
+- Updated dependency versions in `package.json` to maintain compatibility and benefit from improvements and bug fixes in the used libraries.
+
 ## [1.1.1] - 2025-11-24
 
 ### Changed
@@ -84,6 +100,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vite build configuration with CSS injection
 - Demo playground with example implementations
 
+[1.1.2]: https://github.com/TODOvue/tv-menu/pull/7/files
 [1.1.1]: https://github.com/TODOvue/tv-menu/pull/6/files
 [1.1.0]: https://github.com/TODOvue/tv-menu/pull/5/files
 [1.0.3]: https://github.com/TODOvue/tv-menu/pull/4/files
