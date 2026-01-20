@@ -16,12 +16,11 @@ A flexible, responsive Vue 3 menu component with integrated search functionality
 
 > Demo: https://ui.todovue.blog/menu
 
----
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
 - [Quick Start (SPA)](#quick-start-spa)
-- [Nuxt 3 / SSR Usage](#nuxt-3--ssr-usage)
+- [Nuxt 4 / SSR Usage](#nuxt-4--ssr-usage)
 - [Component Registration Options](#component-registration-options)
 - [Props](#props)
 - [Events](#events)
@@ -34,7 +33,6 @@ A flexible, responsive Vue 3 menu component with integrated search functionality
 - [Contributing](#contributing)
 - [License](#license)
 
----
 ## Features
 - Responsive navigation menu with desktop and mobile views
 - Integrated search functionality powered by `@todovue/tv-search`
@@ -45,7 +43,6 @@ A flexible, responsive Vue 3 menu component with integrated search functionality
 - Works seamlessly in SPA and SSR (Nuxt 3) contexts
 - Tree-shake friendly (Vue marked external in library build)
 
----
 ## Installation
 Using npm:
 ```bash
@@ -60,7 +57,6 @@ Using pnpm:
 pnpm add @todovue/tv-menu
 ```
 
----
 ## Quick Start (SPA)
 Global registration (main.js / main.ts):
 ```js
@@ -116,8 +112,7 @@ function handleSearch(searchTerm) {
 </template>
 ```
 
----
-## Nuxt 3 / SSR Usage
+## Nuxt 4 / SSR Usage
 Create a plugin file: `plugins/tv-menu.client.ts`:
 ```ts
 // nuxt.config.ts
@@ -139,7 +134,6 @@ Use anywhere in your Nuxt app:
 </template>
 ```
 
----
 ## Component Registration Options
 | Approach                                                        | When to use                                    |
 |-----------------------------------------------------------------|------------------------------------------------|
@@ -147,14 +141,15 @@ Use anywhere in your Nuxt app:
 | Local named import `{ TvMenu }`                                 | Isolated / code-split contexts                 |
 | Direct default import `import TvMenu from '@todovue/tv-menu'`   | Single usage or manual registration            |
 
----
 ## Props
-| Prop        | Type   | Default | Description                                              |
-|-------------|--------|---------|----------------------------------------------------------|
-| menus       | Array  | []      | Array of menu items with `{ id, title, url }` structure. |
-| placeholder | String | ''      | Placeholder text for the search input.                   |
-| titleButton | String | ''      | Label for the search button.                             |
-| imageMenu   | String | ''      | URL of the logo/image to display in the menu header.     |
+| Prop          | Type          | Default            | Description                                              |
+|---------------|---------------|--------------------|----------------------------------------------------------|
+| menus         | Array         | []                 | Array of menu items with `{ id, title, url }` structure. |
+| placeholder   | String        | ''                 | Placeholder text for the search input.                   |
+| titleButton   | String        | ''                 | Label for the search button.                             |
+| imageMenu     | String        | ''                 | URL of the logo/image to display in the menu header.     |
+| noResultsText | String        | 'No results found' | Text displayed when search yields no results.            |
+| activeMenu    | String/Number | null               | The ID of the currently active menu item.                |
 
 ### Menu Item Structure
 Each item in the `menus` array should have this structure:
@@ -166,13 +161,13 @@ Each item in the `menus` array should have this structure:
 }
 ```
 
----
 ## Events
-| Event name (kebab) | Payload     | Description                                        |
-|--------------------|-------------|----------------------------------------------------|
-| `clickImage`       | —           | Emitted when the logo/image is clicked.            |
-| `clickMenu`        | menu object | Emitted when a menu item is clicked.               |
-| `searchMenu`       | search term | Emitted when search is performed (string value).   |
+| Event name (kebab)  | Payload     | Description                                      |
+|---------------------|-------------|--------------------------------------------------|
+| `clickImage`        | —           | Emitted when the logo/image is clicked.          |
+| `clickMenu`         | menu object | Emitted when a menu item is clicked.             |
+| `searchMenu`        | search term | Emitted when search is performed (string value). |
+| `update:activeMenu` | menu id     | Emitted when the active menu item changes.       |
 
 Usage examples:
 ```vue
@@ -183,7 +178,33 @@ Usage examples:
 />
 ```
 
----
+## Slots
+| Slot Name     | Props                  | Description                                            |
+|---------------|------------------------|--------------------------------------------------------|
+| `logo`        | —                      | Replace the default logo image.                        |
+| `item`        | `{ menu, isActive }`   | Customize the rendering of each menu item.             |
+| `action-end`  | —                      | Add content after the search bar (e.g., User Profile). |
+
+### Example with Slots
+```vue
+<TvMenu :menus="menus" v-model:activeMenu="activeId">
+  <template #logo>
+    <div class="my-logo">My App</div>
+  </template>
+  
+  <template #item="{ menu, isActive }">
+    <span :class="{ 'highlight': isActive }">
+      <i class="icon" v-if="menu.icon" :class="menu.icon"></i>
+      {{ menu.title }}
+    </span>
+  </template>
+
+  <template #action-end>
+     <div class="user-profile">User</div>
+  </template>
+</TvMenu>
+```
+
 ## Usage Examples
 
 ### Basic Navigation Menu
@@ -284,14 +305,12 @@ function searchProducts(query) {
 </template>
 ```
 
----
 ## Responsive Behavior
 - **Desktop view**: Full horizontal menu with all items visible + integrated search
 - **Mobile view**: Hamburger icon that toggles a slide-in menu overlay
 - **Automatic breakpoint**: Menu adapts automatically using CSS media queries
 - **Touch-friendly**: All interactive elements are optimized for touch devices
 
----
 ## Customization (Styles / Theming)
 The component uses SCSS with a modular structure. You can override styles by targeting the following CSS classes:
 
@@ -327,7 +346,6 @@ The component uses SCSS with a modular structure. You can override styles by tar
 }
 ```
 
----
 ## Accessibility
 - Semantic HTML5 elements (`<header>`, `<nav>`, `<ul>`, `<li>`)
 - Keyboard navigation support for all interactive elements
@@ -340,14 +358,12 @@ The component uses SCSS with a modular structure. You can override styles by tar
 - Ensure menu items have descriptive titles
 - Test keyboard navigation (Tab, Enter, Escape)
 
----
 ## SSR Notes
 - No direct DOM (`window` / `document`) access in core component → safe for SSR
 - Styles are automatically injected when you import the library
 - Works with Vite-based SSR and Nuxt 3 out of the box
 - Mobile menu state is managed via Vue reactivity (no localStorage dependencies)
 
----
 ## Development
 ```bash
 git clone https://github.com/TODOvue/tv-menu.git
@@ -358,7 +374,6 @@ npm run build   # build library
 ```
 Local demo served from Vite using `index.html` + `src/demo` examples.
 
----
 ## Contributing
 PRs and issues welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
@@ -367,10 +382,8 @@ Please ensure:
 - Tests pass (when available)
 - Documentation is updated for new features
 
----
 ## License
 MIT © TODOvue
 
----
 ### Attributions
 Crafted for the TODOvue component ecosystem

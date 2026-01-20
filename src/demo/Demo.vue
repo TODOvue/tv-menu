@@ -10,12 +10,13 @@ const TvMenu = defineAsyncComponent(/* webpackChunkName: "TvMenu" */() => import
   <TvDemo
     :component="TvMenu"
     :variants="demos"
+    :manual-emits="['clickImageMenu', 'clickMenuItem', 'searchMenu', 'update:activeMenu']"
     hide-background
     component-name="TvMenu"
     npm-install="@todovue/tv-menu"
     source-link="https://github.com/TODOvue/tv-menu"
     url-clone="https://github.com/TODOvue/tv-menu.git"
-    version="1.1.2"
+    version="1.1.3"
   />
 </template>
 

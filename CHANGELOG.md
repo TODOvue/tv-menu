@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3] - 2026-01-20
+
+### Added
+- Introduced the `noResultsText` property to allow for customizable feedback when search queries return no matches.
+- Added `activeMenu` prop to highlight the active menu item.
+- Added slots: `#logo`, `#item`, and `#action-end` for greater customization.
+- Added `update:activeMenu` event for v-model support.
+
+### Dependencies
+- Updated `@todovue/tv-demo` to `^1.4.4`.
+- Updated `sass` to `^1.97.2`.
+- Updated `vite` to `^7.3.1`.
+
 ## [1.1.2] - 2025-12-27
 
 ### Added
@@ -100,6 +113,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vite build configuration with CSS injection
 - Demo playground with example implementations
 
+[1.1.3]: https://github.com/TODOvue/tv-menu/pull/8/files
 [1.1.2]: https://github.com/TODOvue/tv-menu/pull/7/files
 [1.1.1]: https://github.com/TODOvue/tv-menu/pull/6/files
 [1.1.0]: https://github.com/TODOvue/tv-menu/pull/5/files
