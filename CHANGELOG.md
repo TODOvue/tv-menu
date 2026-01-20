@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.1.3] - 2026-01-20
 
 ### Added
 - Introduced the `noResultsText` property to allow for customizable feedback when search queries return no matches.
@@ -113,6 +113,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vite build configuration with CSS injection
 - Demo playground with example implementations
 
+[1.1.3]: https://github.com/TODOvue/tv-menu/pull/8/files
 [1.1.2]: https://github.com/TODOvue/tv-menu/pull/7/files
 [1.1.1]: https://github.com/TODOvue/tv-menu/pull/6/files
 [1.1.0]: https://github.com/TODOvue/tv-menu/pull/5/files
