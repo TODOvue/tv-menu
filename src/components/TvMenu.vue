@@ -2,7 +2,7 @@
 import { TvSearch } from "@todovue/tv-search";
 import useMenu from "../composables/useMenu.js";
 
-defineProps({
+const props = defineProps({
   placeholder: {
     type: String,
     default: "",
@@ -43,10 +43,11 @@ const emit = defineEmits([
 const {
   manageViewMenu,
   showMenu,
+  activeMenuInternal,
   handleClickImage,
   handleClickMenu,
   handleSearch,
-} = useMenu(emit);
+} = useMenu(props, emit);
 </script>
 
 <template>
@@ -61,10 +62,10 @@ const {
         v-for="menu in menus"
         :key="menu.id"
         class="tv-menu-item tv-cursor-pointer"
-        :class="{ 'active': activeMenu === menu.id }"
+        :class="{ 'active': activeMenuInternal === menu.id }"
         @click="handleClickMenu(menu)"
       >
-        <slot name="item" :menu="menu" :isActive="activeMenu === menu.id">
+        <slot name="item" :menu="menu" :isActive="activeMenuInternal === menu.id">
           {{ menu.title }}
         </slot>
       </div>
@@ -89,10 +90,10 @@ const {
           v-for="menu in menus"
           :key="menu.id"
           class="tv-menu-item-mobile tv-cursor-pointer"
-          :class="{ 'active': activeMenu === menu.id }"
+          :class="{ 'active': activeMenuInternal === menu.id }"
           @click="handleClickMenu(menu)"
         >
-          <slot name="item" :menu="menu" :isActive="activeMenu === menu.id">
+          <slot name="item" :menu="menu" :isActive="activeMenuInternal === menu.id">
             {{ menu.title }}
           </slot>
         </div>

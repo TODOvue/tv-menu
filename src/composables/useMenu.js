@@ -1,7 +1,12 @@
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
-const useMenu = (emit) => {
+const useMenu = (props, emit) => {
   const showMenu = ref(false);
+  const activeMenuInternal = ref(props.activeMenu);
+
+  watch(() => props.activeMenu, (val) => {
+    activeMenuInternal.value = val;
+  });
 
   const handleClickImage = () => {
     emit("clickImage");
@@ -13,6 +18,7 @@ const useMenu = (emit) => {
     }
     emit("clickMenu", menu);
     if (menu.id) {
+      activeMenuInternal.value = menu.id;
       emit("update:activeMenu", menu.id);
     }
   };
@@ -27,6 +33,7 @@ const useMenu = (emit) => {
 
   return {
     showMenu,
+    activeMenuInternal,
     handleClickImage,
     handleClickMenu,
     handleSearch,
