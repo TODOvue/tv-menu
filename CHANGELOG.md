@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Introduced the `noResultsText` property to allow for customizable feedback when search queries return no matches.
+- Added `activeMenu` prop to highlight the active menu item.
+- Added slots: `#logo`, `#item`, and `#action-end` for greater customization.
+- Added `update:activeMenu` event for v-model support.
 
 ### Dependencies
 - Updated `@todovue/tv-demo` to `^1.4.4`.

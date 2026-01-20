@@ -142,13 +142,14 @@ Use anywhere in your Nuxt app:
 | Direct default import `import TvMenu from '@todovue/tv-menu'`   | Single usage or manual registration            |
 
 ## Props
-| Prop          | Type   | Default            | Description                                              |
-|---------------|--------|--------------------|----------------------------------------------------------|
-| menus         | Array  | []                 | Array of menu items with `{ id, title, url }` structure. |
-| placeholder   | String | ''                 | Placeholder text for the search input.                   |
-| titleButton   | String | ''                 | Label for the search button.                             |
-| imageMenu     | String | ''                 | URL of the logo/image to display in the menu header.     |
-| noResultsText | String | 'No results found' | Text displayed when search yields no results.            |
+| Prop          | Type          | Default            | Description                                              |
+|---------------|---------------|--------------------|----------------------------------------------------------|
+| menus         | Array         | []                 | Array of menu items with `{ id, title, url }` structure. |
+| placeholder   | String        | ''                 | Placeholder text for the search input.                   |
+| titleButton   | String        | ''                 | Label for the search button.                             |
+| imageMenu     | String        | ''                 | URL of the logo/image to display in the menu header.     |
+| noResultsText | String        | 'No results found' | Text displayed when search yields no results.            |
+| activeMenu    | String/Number | null               | The ID of the currently active menu item.                |
 
 ### Menu Item Structure
 Each item in the `menus` array should have this structure:
@@ -161,11 +162,12 @@ Each item in the `menus` array should have this structure:
 ```
 
 ## Events
-| Event name (kebab) | Payload     | Description                                        |
-|--------------------|-------------|----------------------------------------------------|
-| `clickImage`       | —           | Emitted when the logo/image is clicked.            |
-| `clickMenu`        | menu object | Emitted when a menu item is clicked.               |
-| `searchMenu`       | search term | Emitted when search is performed (string value).   |
+| Event name (kebab)  | Payload     | Description                                      |
+|---------------------|-------------|--------------------------------------------------|
+| `clickImage`        | —           | Emitted when the logo/image is clicked.          |
+| `clickMenu`         | menu object | Emitted when a menu item is clicked.             |
+| `searchMenu`        | search term | Emitted when search is performed (string value). |
+| `update:activeMenu` | menu id     | Emitted when the active menu item changes.       |
 
 Usage examples:
 ```vue
@@ -174,6 +176,33 @@ Usage examples:
   @clickMenu="handleNavigation"
   @searchMenu="performSearch"
 />
+```
+
+## Slots
+| Slot Name     | Props                  | Description                                            |
+|---------------|------------------------|--------------------------------------------------------|
+| `logo`        | —                      | Replace the default logo image.                        |
+| `item`        | `{ menu, isActive }`   | Customize the rendering of each menu item.             |
+| `action-end`  | —                      | Add content after the search bar (e.g., User Profile). |
+
+### Example with Slots
+```vue
+<TvMenu :menus="menus" v-model:activeMenu="activeId">
+  <template #logo>
+    <div class="my-logo">My App</div>
+  </template>
+  
+  <template #item="{ menu, isActive }">
+    <span :class="{ 'highlight': isActive }">
+      <i class="icon" v-if="menu.icon" :class="menu.icon"></i>
+      {{ menu.title }}
+    </span>
+  </template>
+
+  <template #action-end>
+     <div class="user-profile">User</div>
+  </template>
+</TvMenu>
 ```
 
 ## Usage Examples

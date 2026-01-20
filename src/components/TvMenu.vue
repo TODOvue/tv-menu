@@ -26,6 +26,10 @@ defineProps({
   noResultsText: {
     type: String,
     default: "No results found for",
+  },
+  activeMenu: {
+    type: [String, Number],
+    default: null,
   }
 })
 
@@ -33,6 +37,7 @@ const emit = defineEmits([
   'clickImageMenu',
   'clickMenuItem',
   'searchMenu',
+  'update:activeMenu',
 ]);
 
 const {
@@ -47,16 +52,21 @@ const {
 <template>
   <header class="tv-menu-container">
     <nav class="tv-menu-image tv-cursor-pointer">
-      <img :src="imageMenu" alt="Logo" @click="handleClickImage" />
+      <slot name="logo">
+        <img v-if="imageMenu" :src="imageMenu" alt="Logo" @click="handleClickImage" />
+      </slot>
     </nav>
     <section class="tv-menu-items">
       <div
         v-for="menu in menus"
         :key="menu.id"
         class="tv-menu-item tv-cursor-pointer"
+        :class="{ 'active': activeMenu === menu.id }"
         @click="handleClickMenu(menu)"
       >
-        {{ menu.title }}
+        <slot name="item" :menu="menu" :isActive="activeMenu === menu.id">
+          {{ menu.title }}
+        </slot>
       </div>
       <i
         class="tv-icon tv-menu-icon tv-cursor-pointer"
@@ -69,6 +79,7 @@ const {
         :no-results-text="noResultsText"
         @search="handleSearch"
       />
+      <slot name="action-end"></slot>
       <div class="tv-menu-items-mobile" v-if="showMenu">
         <i
           class="tv-icon tv-menu-icon-cancel tv-cursor-pointer"
@@ -78,9 +89,12 @@ const {
           v-for="menu in menus"
           :key="menu.id"
           class="tv-menu-item-mobile tv-cursor-pointer"
+          :class="{ 'active': activeMenu === menu.id }"
           @click="handleClickMenu(menu)"
         >
-          {{ menu.title }}
+          <slot name="item" :menu="menu" :isActive="activeMenu === menu.id">
+            {{ menu.title }}
+          </slot>
         </div>
       </div>
     </section>

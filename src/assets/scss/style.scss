@@ -42,6 +42,12 @@
         transform: translateY(-2px);
         text-shadow: 0 0 10px rgba(variables.$dark-button-text, 0.5);
       }
+
+      &.active {
+        color: variables.$dark-button-text;
+        font-weight: 700;
+        text-shadow: 0 0 10px rgba(variables.$dark-button-text, 0.5);
+      }
     }
   }
 }
@@ -86,6 +92,12 @@
         &:hover {
           color: variables.$light-button-bg;
           transform: translateY(-2px);
+          text-shadow: 0 0 10px rgba(variables.$light-button-bg, 0.3);
+        }
+
+        &.active {
+          color: variables.$light-button-bg;
+          font-weight: 700;
           text-shadow: 0 0 10px rgba(variables.$light-button-bg, 0.3);
         }
       }
@@ -181,6 +193,13 @@
         &:hover {
           transform: translateX(10px);
           padding-left: 40px;
+        }
+
+        &.active {
+          transform: translateX(10px);
+          padding-left: 40px;
+          color: variables.$dark-button-text;
+          font-weight: 700;
         }
       }
     }

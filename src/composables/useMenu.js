@@ -2,26 +2,29 @@ import { ref } from "vue";
 
 const useMenu = (emit) => {
   const showMenu = ref(false);
-  
+
   const handleClickImage = () => {
     emit("clickImage");
   };
-  
+
   const handleClickMenu = (menu) => {
     if (showMenu.value) {
       manageViewMenu(false);
     }
     emit("clickMenu", menu);
+    if (menu.id) {
+      emit("update:activeMenu", menu.id);
+    }
   };
-  
+
   const handleSearch = (search) => {
     emit("searchMenu", search);
   };
-  
+
   const manageViewMenu = (value) => {
     showMenu.value = value;
   };
-  
+
   return {
     showMenu,
     handleClickImage,
