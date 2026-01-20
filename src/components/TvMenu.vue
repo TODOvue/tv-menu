@@ -23,6 +23,10 @@ defineProps({
     type: Array,
     default: () => [],
   },
+  noResultsText: {
+    type: String,
+    default: "No results found for",
+  }
 })
 
 const emit = defineEmits([
@@ -55,13 +59,14 @@ const {
         {{ menu.title }}
       </div>
       <i
-          class="tv-icon tv-menu-icon tv-cursor-pointer"
-          @click="manageViewMenu(true)"
+        class="tv-icon tv-menu-icon tv-cursor-pointer"
+        @click="manageViewMenu(true)"
       ></i>
       <tv-search
         :placeholder="placeholder"
         :titleButton="titleButton"
         :results="results"
+        :no-results-text="noResultsText"
         @search="handleSearch"
       />
       <div class="tv-menu-items-mobile" v-if="showMenu">
