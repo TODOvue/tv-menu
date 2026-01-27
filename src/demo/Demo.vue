@@ -1,6 +1,7 @@
 <script setup>
 import { defineAsyncComponent } from 'vue'
 import { demos } from './utils/mocks.js'
+import { TvDemo } from '@todovue/tv-demo';
 
 const TvMenu = defineAsyncComponent(/* webpackChunkName: "TvMenu" */() => import('../components/TvMenu.vue'))
 
@@ -16,7 +17,7 @@ const TvMenu = defineAsyncComponent(/* webpackChunkName: "TvMenu" */() => import
     npm-install="@todovue/tv-menu"
     source-link="https://github.com/TODOvue/tv-menu"
     url-clone="https://github.com/TODOvue/tv-menu.git"
-    version="1.1.3"
+    version="1.1.4"
   />
 </template>
 
