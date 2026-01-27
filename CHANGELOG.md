@@ -1,9 +1,30 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to `@todovue/tv-menu` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.1.4] - 2026-01-27
+
+### Changed
+- Simplified the file list in `package.json` to include only essential assets.
+- Simplified the build configuration by removing demo-specific logic.
+- Enhanced GitHub Actions workflows to automate npm package publishing and GitHub release creation.
+- Moved the `@todovue/tv-demo` component import from main.js to `Demo.vue` to localize its usage.
+- Updated build commands to include `README.md` and `CHANGELOG.md` files in the public directory during the build process.
+
+### Added
+- Included the `src` directory in the `package.json` files list to ensure component source files are bundled in the package distribution.
+
+### Removed
+- Eliminated the global import of the `@todovue/tv-demo` component from `main.js`.
+
+### Dependencies
+- Updated `@todovue/tv-demo` to `^1.4.11`.
+- Updated `@todovue/tv-search` to `^1.2.1`.
+- Updated `vue` to `^3.5.27`.
+- Updated `sass` to `^1.97.3`.
 
 ## [1.1.3] - 2026-01-20
 
@@ -113,6 +134,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vite build configuration with CSS injection
 - Demo playground with example implementations
 
+[1.1.4]: https://github.com/TODOvue/tv-menu/pull/9/files
 [1.1.3]: https://github.com/TODOvue/tv-menu/pull/8/files
 [1.1.2]: https://github.com/TODOvue/tv-menu/pull/7/files
 [1.1.1]: https://github.com/TODOvue/tv-menu/pull/6/files
