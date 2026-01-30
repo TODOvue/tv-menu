@@ -196,8 +196,6 @@
         }
 
         &.active {
-          transform: translateX(10px);
-          padding-left: 40px;
           color: variables.$dark-button-text;
           font-weight: 700;
         }
